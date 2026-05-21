@@ -48,6 +48,10 @@ import { AdapterManager } from "./pages/AdapterManager";
 import { PluginPage } from "./pages/PluginPage";
 import { OrgChart } from "./pages/OrgChart";
 import { NewAgent } from "./pages/NewAgent";
+import { AiCompanyDashboard } from "./pages/AiCompanyDashboard";
+import { AiCompanyProjects } from "./pages/AiCompanyProjects";
+import { AiCompanyAgents } from "./pages/AiCompanyAgents";
+import { AiCompanyCosts } from "./pages/AiCompanyCosts";
 import { AuthPage } from "./pages/Auth";
 import { BoardClaimPage } from "./pages/BoardClaim";
 import { CliAuthPage } from "./pages/CliAuth";
@@ -124,6 +128,10 @@ function boardRoutes() {
       <Route path="approvals/all" element={<Approvals />} />
       <Route path="approvals/:approvalId" element={<ApprovalDetail />} />
       <Route path="costs" element={<Costs />} />
+      <Route path="ai-company" element={<AiCompanyDashboard />} />
+      <Route path="ai-company/projects" element={<AiCompanyProjects />} />
+      <Route path="ai-company/agents" element={<AiCompanyAgents />} />
+      <Route path="ai-company/costs" element={<AiCompanyCosts />} />
       <Route path="activity" element={<Activity />} />
       <Route path="inbox" element={<InboxRootRedirect />} />
       <Route path="inbox/mine" element={<Inbox />} />
