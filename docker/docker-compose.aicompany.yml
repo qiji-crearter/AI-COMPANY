@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: aicompany
+      POSTGRES_PASSWORD: aicompany
+      POSTGRES_DB: aicompany
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aicompany -d aicompany"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "3100:3100"
+    environment:
+      DATABASE_URL: postgres://aicompany:aicompany@db:5432/aicompany
+      PORT: "3100"
+      SERVE_UI: "true"
+      PAPERCLIP_DEPLOYMENT_MODE: "trusted-local"
+      PAPERCLIP_DEPLOYMENT_EXPOSURE: "private"
+      PAPERCLIP_PUBLIC_URL: "${PAPERCLIP_PUBLIC_URL:-http://localhost:3100}"
+    volumes:
+      - aicompany-data:/paperclip
+      - ./projects:/paperclip/projects
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  aicompany-data:
