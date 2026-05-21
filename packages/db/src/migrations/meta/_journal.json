@@ -624,6 +624,13 @@
       "when": 1779385301151,
       "tag": "0088_tranquil_patch",
       "breakpoints": true
+    },
+    {
+      "idx": 89,
+      "version": "7",
+      "when": 1779385471517,
+      "tag": "0089_clean_rocket_raccoon",
+      "breakpoints": true
     }
   ]
 }
