@@ -58,3 +58,8 @@ tests/release-smoke/playwright-report/
 .superpowers/
 .claude/worktrees/
 .herenow
+
+# AI Company
+/projects/*
+!/projects/.gitkeep
+/config/local.*
