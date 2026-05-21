@@ -15,6 +15,7 @@ import { companySkillRoutes } from "./routes/company-skills.js";
 import { agentRoutes } from "./routes/agents.js";
 import { agentPoolRoutes } from "./routes/agent-pool.js";
 import { projectRoutes } from "./routes/projects.js";
+import { projectWorkspaceRoutes } from "./routes/project-workspace.js";
 import { issueRoutes } from "./routes/issues.js";
 import { issueTreeControlRoutes } from "./routes/issue-tree-control.js";
 import { routineRoutes } from "./routes/routines.js";
@@ -208,6 +209,7 @@ export async function createApp(
   api.use(agentPoolRoutes(db));
   api.use(assetRoutes(db, opts.storageService));
   api.use(projectRoutes(db));
+  api.use(projectWorkspaceRoutes(db));
   api.use(issueRoutes(db, opts.storageService, {
     feedbackExportService: opts.feedbackExportService,
     pluginWorkerManager: workerManager,
