@@ -3,9 +3,11 @@ import { initReactI18next, useTranslation as useReactI18nextTranslation } from "
 
 import { DEFAULT_LOCALE, i18nextResources, supportedLocales } from "./locales";
 
+const savedLocale = typeof window !== "undefined" ? window.localStorage.getItem("locale") : null;
+
 const i18nextOptions: InitOptions = {
   resources: i18nextResources,
-  lng: DEFAULT_LOCALE,
+  lng: savedLocale || DEFAULT_LOCALE,
   fallbackLng: DEFAULT_LOCALE,
   supportedLngs: supportedLocales,
   defaultNS: "translation",
@@ -16,6 +18,10 @@ const i18nextOptions: InitOptions = {
 
 void i18n.use(initReactI18next).init(i18nextOptions).catch((error: unknown) => {
   console.error("Failed to initialize i18next", error);
+});
+
+i18n.on("languageChanged", (lng: string) => {
+  try { window.localStorage.setItem("locale", lng); } catch { /* ignore */ }
 });
 
 export function t(key: string, options: TOptions = {}) {

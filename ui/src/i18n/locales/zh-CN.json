@@ -5,5 +5,133 @@
       "description": "通过创建公司开始。",
       "newCompany": "新公司"
     }
+  },
+  "nav": {
+    "sidebar": {
+      "openSearch": "打开搜索",
+      "newIssue": "新建工单",
+      "dashboard": "仪表盘",
+      "inbox": "收件箱",
+      "section": {
+        "work": "工作",
+        "company": "公司"
+      },
+      "issues": "工单",
+      "routines": "例程",
+      "goals": "目标",
+      "workspaces": "工作区",
+      "org": "组织",
+      "skills": "技能",
+      "costs": "费用",
+      "activity": "活动",
+      "settings": "设置"
+    },
+    "section": {
+      "collapse": "折叠 {{label}}",
+      "expand": "展开 {{label}}"
+    },
+    "item": {
+      "liveCount": "{{count}} 运行中"
+    },
+    "mobile": {
+      "navigation": "底部导航",
+      "home": "首页",
+      "issues": "工单",
+      "create": "创建",
+      "agents": "智能体",
+      "inbox": "收件箱"
+    }
+  },
+  "banner": {
+    "restart": {
+      "justNow": "刚刚",
+      "minutesAgo": "{{minutes}} 分钟前",
+      "hoursAgo": "{{hours}} 小时前",
+      "daysAgo": "{{days}} 天前",
+      "reason": {
+        "changesAndMigrations": "检测到后端变更和待迁移变更",
+        "pendingMigrations": "检测到待处理的数据迁移",
+        "backendChanged": "检测到后端变更"
+      },
+      "required": "需要重启",
+      "autoRestartOn": "自动重启已开启",
+      "updated": "更新于",
+      "changed": "变更文件",
+      "more": "更多",
+      "pendingMigrations": "待迁移",
+      "liveRunCount": "{{count}} 个活跃运行",
+      "waitingForIdle": "等待空闲 — {{activeRunLabel}}",
+      "autoRestartWillTrigger": "空闲时将自动重启",
+      "restartDevOnce": "需手动重启一次",
+      "confirmWithRuns": "当前有 {{activeRunLabel}}，确定现在重启吗？",
+      "confirmWithoutRuns": "确定现在重启开发服务器吗？",
+      "requested": "已请求重启",
+      "now": "立即重启",
+      "failed": "重启请求失败，请重试"
+    }
+  },
+  "layout": {
+    "skipToMain": "跳转到主内容",
+    "closeSidebar": "关闭侧边栏"
+  },
+  "breadcrumb": {
+    "openSidebar": "打开侧边栏"
+  },
+  "worktreeBanner": {
+    "label": "工作树",
+    "copyTitle": "点击复制工作树名称",
+    "copied": "已复制！"
+  },
+  "notFound": {
+    "breadcrumb": "未找到",
+    "companyNotFound": "未找到该公司",
+    "pageNotFound": "未找到该页面",
+    "noCompanyMatch": "没有匹配前缀 \"{{prefix}}\" 的公司。",
+    "routeDoesNotExist": "该路由不存在。",
+    "requestedPath": "请求路径",
+    "openDashboard": "打开仪表盘",
+    "goHome": "返回首页"
+  },
+  "instanceSidebar": {
+    "title": "实例设置",
+    "profile": "个人资料",
+    "general": "通用",
+    "access": "访问控制",
+    "heartbeats": "心跳",
+    "experimental": "实验性",
+    "plugins": "插件",
+    "adapters": "适配器"
+  },
+  "companySettingsSidebar": {
+    "title": "公司设置",
+    "companyFallback": "公司",
+    "general": "通用",
+    "environments": "环境",
+    "access": "访问控制",
+    "invites": "邀请",
+    "secrets": "密钥"
+  },
+  "accountMenu": {
+    "board": "看板",
+    "signedIn": "已登录",
+    "localWorkspace": "本地工作区看板",
+    "account": "账户",
+    "local": "本地",
+    "version": "Paperclip v{{version}}",
+    "openAccountMenu": "打开账户菜单",
+    "viewProfile": "查看资料",
+    "viewProfileDesc": "查看您的活动、任务和使用记录。",
+    "editProfile": "编辑资料",
+    "editProfileDesc": "更新您的显示名称和头像。",
+    "instanceSettings": "实例设置",
+    "instanceSettingsDesc": "跳转到上次打开的设置页面。",
+    "documentation": "文档",
+    "documentationDesc": "在新标签页中打开 Paperclip 文档。",
+    "switchToLight": "切换到浅色模式",
+    "switchToDark": "切换到深色模式",
+    "toggleAppearance": "切换应用外观。",
+    "signOut": "退出登录",
+    "signingOut": "退出中...",
+    "signOutDesc": "结束此浏览器会话。"
   }
 }

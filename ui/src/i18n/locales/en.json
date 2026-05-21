@@ -5,5 +5,133 @@
       "description": "Get started by creating a company.",
       "newCompany": "New Company"
     }
+  },
+  "nav": {
+    "sidebar": {
+      "openSearch": "Search",
+      "newIssue": "New Issue",
+      "dashboard": "Dashboard",
+      "inbox": "Inbox",
+      "section": {
+        "work": "Work",
+        "company": "Company"
+      },
+      "issues": "Issues",
+      "routines": "Routines",
+      "goals": "Goals",
+      "workspaces": "Workspaces",
+      "org": "Org",
+      "skills": "Skills",
+      "costs": "Costs",
+      "activity": "Activity",
+      "settings": "Settings"
+    },
+    "section": {
+      "collapse": "Collapse {{label}}",
+      "expand": "Expand {{label}}"
+    },
+    "item": {
+      "liveCount": "{{count}} live"
+    },
+    "mobile": {
+      "navigation": "Mobile navigation",
+      "home": "Home",
+      "issues": "Issues",
+      "create": "Create",
+      "agents": "Agents",
+      "inbox": "Inbox"
+    }
+  },
+  "banner": {
+    "restart": {
+      "justNow": "Just now",
+      "minutesAgo": "{{minutes}}m ago",
+      "hoursAgo": "{{hours}}h ago",
+      "daysAgo": "{{days}}d ago",
+      "reason": {
+        "changesAndMigrations": "Backend changes and pending migrations detected",
+        "pendingMigrations": "Pending database migrations detected",
+        "backendChanged": "Backend source code changed"
+      },
+      "required": "Restart required",
+      "autoRestartOn": "Auto-restart on",
+      "updated": "updated",
+      "changed": "Changed",
+      "more": "more",
+      "pendingMigrations": "Pending migrations",
+      "liveRunCount": "{{count}} active runs",
+      "waitingForIdle": "Waiting for idle — {{activeRunLabel}}",
+      "autoRestartWillTrigger": "Will auto-restart when idle",
+      "restartDevOnce": "Restart dev once",
+      "confirmWithRuns": "You have {{activeRunLabel}}. Restart now?",
+      "confirmWithoutRuns": "Restart the development server now?",
+      "requested": "Restart requested",
+      "now": "Restart now",
+      "failed": "Restart request failed. Please try again."
+    }
+  },
+  "layout": {
+    "skipToMain": "Skip to Main Content",
+    "closeSidebar": "Close sidebar"
+  },
+  "breadcrumb": {
+    "openSidebar": "Open sidebar"
+  },
+  "worktreeBanner": {
+    "label": "Worktree",
+    "copyTitle": "Click to copy worktree name",
+    "copied": "Copied!"
+  },
+  "notFound": {
+    "breadcrumb": "Not Found",
+    "companyNotFound": "Company not found",
+    "pageNotFound": "Page not found",
+    "noCompanyMatch": "No company matches prefix \"{{prefix}}\".",
+    "routeDoesNotExist": "This route does not exist.",
+    "requestedPath": "Requested path",
+    "openDashboard": "Open dashboard",
+    "goHome": "Go home"
+  },
+  "instanceSidebar": {
+    "title": "Instance Settings",
+    "profile": "Profile",
+    "general": "General",
+    "access": "Access",
+    "heartbeats": "Heartbeats",
+    "experimental": "Experimental",
+    "plugins": "Plugins",
+    "adapters": "Adapters"
+  },
+  "companySettingsSidebar": {
+    "title": "Company Settings",
+    "companyFallback": "Company",
+    "general": "General",
+    "environments": "Environments",
+    "access": "Access",
+    "invites": "Invites",
+    "secrets": "Secrets"
+  },
+  "accountMenu": {
+    "board": "Board",
+    "signedIn": "Signed in",
+    "localWorkspace": "Local workspace board",
+    "account": "Account",
+    "local": "Local",
+    "version": "Paperclip v{{version}}",
+    "openAccountMenu": "Open account menu",
+    "viewProfile": "View profile",
+    "viewProfileDesc": "Open your activity, task, and usage ledger.",
+    "editProfile": "Edit profile",
+    "editProfileDesc": "Update your display name and avatar.",
+    "instanceSettings": "Instance settings",
+    "instanceSettingsDesc": "Jump back to the last settings page you opened.",
+    "documentation": "Documentation",
+    "documentationDesc": "Open Paperclip docs in a new tab.",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "toggleAppearance": "Toggle the app appearance.",
+    "signOut": "Sign out",
+    "signingOut": "Signing out...",
+    "signOutDesc": "End this browser session."
   }
 }

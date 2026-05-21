@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { NavLink, useLocation } from "@/lib/router";
 import {
   House,
@@ -11,6 +10,7 @@ import { useCompany } from "../context/CompanyContext";
 import { useDialogActions } from "../context/DialogContext";
 import { SIDEBAR_SCROLL_RESET_STATE } from "../lib/navigation-scroll";
 import { cn } from "../lib/utils";
+import { useTranslation } from "@/i18n";
 import { useInboxBadge } from "../hooks/useInboxBadge";
 
 interface MobileBottomNavProps {
@@ -35,27 +35,25 @@ interface MobileNavActionItem {
 type MobileNavItem = MobileNavLinkItem | MobileNavActionItem;
 
 export function MobileBottomNav({ visible }: MobileBottomNavProps) {
+  const { t } = useTranslation();
   const location = useLocation();
   const { selectedCompanyId } = useCompany();
   const { openNewIssue } = useDialogActions();
   const inboxBadge = useInboxBadge(selectedCompanyId);
 
-  const items = useMemo<MobileNavItem[]>(
-    () => [
-      { type: "link", to: "/dashboard", label: "Home", icon: House },
-      { type: "link", to: "/issues", label: "Issues", icon: CircleDot },
-      { type: "action", label: "Create", icon: SquarePen, onClick: () => openNewIssue() },
-      { type: "link", to: "/agents/all", label: "Agents", icon: Users },
-      {
-        type: "link",
-        to: "/inbox",
-        label: "Inbox",
-        icon: Inbox,
-        badge: inboxBadge.inbox,
-      },
-    ],
-    [openNewIssue, inboxBadge.inbox],
-  );
+  const items: MobileNavItem[] = [
+    { type: "link", to: "/dashboard", label: t("nav.mobile.home"), icon: House },
+    { type: "link", to: "/issues", label: t("nav.mobile.issues"), icon: CircleDot },
+    { type: "action", label: t("nav.mobile.create"), icon: SquarePen, onClick: () => openNewIssue() },
+    { type: "link", to: "/agents/all", label: t("nav.mobile.agents"), icon: Users },
+    {
+      type: "link",
+      to: "/inbox",
+      label: t("nav.mobile.inbox"),
+      icon: Inbox,
+      badge: inboxBadge.inbox,
+    },
+  ];
 
   return (
     <nav
@@ -63,7 +61,7 @@ export function MobileBottomNav({ visible }: MobileBottomNavProps) {
         "fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85 transition-transform duration-200 ease-out md:hidden pb-[env(safe-area-inset-bottom)]",
         visible ? "translate-y-0" : "translate-y-full",
       )}
-      aria-label="Mobile navigation"
+      aria-label={t("nav.mobile.navigation")}
     >
       <div className="grid h-16 grid-cols-5 px-1">
         {items.map((item) => {
