@@ -10,6 +10,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { companies } from "./companies.js";
 import { environments } from "./environments.js";
+import { apiKeys } from "./api_keys.js";
 
 export const agents = pgTable(
   "agents",
@@ -23,6 +24,13 @@ export const agents = pgTable(
     status: text("status").notNull().default("idle"),
     reportsTo: uuid("reports_to").references((): AnyPgColumn => agents.id),
     capabilities: text("capabilities"),
+    tags: text("tags").array(),
+    modelBinding: uuid("model_binding").references(() => apiKeys.id),
+    maxConcurrency: integer("max_concurrency").notNull().default(3),
+    temperature: integer("temperature").default(70),
+    maxTokens: integer("max_tokens"),
+    currentTasks: integer("current_tasks").notNull().default(0),
+    lastTaskCompletedAt: timestamp("last_task_completed_at", { withTimezone: true }),
     adapterType: text("adapter_type").notNull().default("process"),
     adapterConfig: jsonb("adapter_config").$type<Record<string, unknown>>().notNull().default({}),
     runtimeConfig: jsonb("runtime_config").$type<Record<string, unknown>>().notNull().default({}),
