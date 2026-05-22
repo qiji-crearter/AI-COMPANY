@@ -16,6 +16,8 @@ data/
 tmp-*
 cli/tmp/
 
+.worktrees/
+
 # Scratch/seed scripts (but not scripts/ dir)
 check-*.mjs
 !scripts/check-*.mjs
