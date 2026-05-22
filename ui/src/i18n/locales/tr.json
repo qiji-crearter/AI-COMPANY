@@ -133,5 +133,70 @@
     "signOut": "Sign out",
     "signingOut": "Signing out...",
     "signOutDesc": "End this browser session."
+  },
+  "dashboard": {
+    "pageTitle": "Dashboard",
+    "welcome": "Welcome to Paperclip. Set up your first company and agent to get started.",
+    "getStarted": "Get Started",
+    "selectCompany": "Create or select a company to view the dashboard.",
+    "noAgents": "You have no agents.",
+    "createAgentHere": "Create one here",
+    "budgetIncident": "{{count}} active budget incident",
+    "budgetIncident_plural": "{{count}} active budget incidents",
+    "budgetSummary": "{{pausedAgents}} agents paused · {{pausedProjects}} projects paused · {{pendingApprovals}} pending budget approvals",
+    "openBudgets": "Open budgets",
+    "agentsEnabled": "Agents Enabled",
+    "running": "{{count}} running",
+    "paused": "{{count}} paused",
+    "errors": "{{count}} errors",
+    "tasksInProgress": "Tasks In Progress",
+    "open": "{{count}} open",
+    "blocked": "{{count}} blocked",
+    "monthSpend": "Month Spend",
+    "budgetPercent": "{{percent}}% of {{budget}} budget",
+    "unlimitedBudget": "Unlimited budget",
+    "pendingApprovals": "Pending Approvals",
+    "budgetOverrides": "{{count}} budget overrides awaiting board review",
+    "awaitingReview": "Awaiting board review",
+    "recentActivity": "Recent Activity",
+    "recentTasks": "Recent Tasks",
+    "noTasksYet": "No tasks yet."
+  },
+  "chart": {
+    "runActivity": "Run Activity",
+    "issuesByPriority": "Issues by Priority",
+    "issuesByStatus": "Issues by Status",
+    "successRate": "Success Rate",
+    "last14Days": "Last 14 days",
+    "noRunsYet": "No runs yet",
+    "noIssues": "No issues",
+    "tooltipRuns": "{{day}}: {{count}} runs",
+    "tooltipIssues": "{{day}}: {{count}} issues",
+    "status": {
+      "todo": "To Do",
+      "inProgress": "In Progress",
+      "inReview": "In Review",
+      "done": "Done",
+      "blocked": "Blocked",
+      "cancelled": "Cancelled",
+      "backlog": "Backlog"
+    },
+    "priority": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    }
+  },
+  "agents": {
+    "panel": {
+      "title": "Agents",
+      "noRecentRuns": "No recent agent runs.",
+      "moreRuns": "{{count}} more active/recent run",
+      "moreRuns_plural": "{{count}} more active/recent runs",
+      "liveNow": "Live now",
+      "finished": "Finished {{time}}",
+      "started": "Started {{time}}"
+    }
   }
 }

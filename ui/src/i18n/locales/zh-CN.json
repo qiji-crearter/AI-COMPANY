@@ -133,5 +133,70 @@
     "signOut": "退出登录",
     "signingOut": "退出中...",
     "signOutDesc": "结束此浏览器会话。"
+  },
+  "dashboard": {
+    "pageTitle": "仪表盘",
+    "welcome": "欢迎使用 Paperclip。创建您的第一家公司和智能体即可开始。",
+    "getStarted": "开始使用",
+    "selectCompany": "请创建或选择一个公司以查看仪表盘。",
+    "noAgents": "您还没有智能体。",
+    "createAgentHere": "在此创建",
+    "budgetIncident": "{{count}} 个活跃预算事件",
+    "budgetIncident_plural": "{{count}} 个活跃预算事件",
+    "budgetSummary": "{{pausedAgents}} 个智能体已暂停 · {{pausedProjects}} 个项目已暂停 · {{pendingApprovals}} 个待处理预算审批",
+    "openBudgets": "打开预算",
+    "agentsEnabled": "活跃智能体",
+    "running": "{{count}} 运行中",
+    "paused": "{{count}} 已暂停",
+    "errors": "{{count}} 错误",
+    "tasksInProgress": "进行中任务",
+    "open": "{{count}} 开放",
+    "blocked": "{{count}} 阻塞",
+    "monthSpend": "月支出",
+    "budgetPercent": "已用预算的 {{percent}}%（共 {{budget}}）",
+    "unlimitedBudget": "无预算限制",
+    "pendingApprovals": "待审批",
+    "budgetOverrides": "{{count}} 个预算超支待董事会审批",
+    "awaitingReview": "等待董事会审批",
+    "recentActivity": "最近活动",
+    "recentTasks": "最近任务",
+    "noTasksYet": "暂无任务。"
+  },
+  "chart": {
+    "runActivity": "运行活动",
+    "issuesByPriority": "按优先级",
+    "issuesByStatus": "按状态",
+    "successRate": "成功率",
+    "last14Days": "最近 14 天",
+    "noRunsYet": "暂无运行记录",
+    "noIssues": "暂无工单",
+    "tooltipRuns": "{{day}}: {{count}} 次运行",
+    "tooltipIssues": "{{day}}: {{count}} 个工单",
+    "status": {
+      "todo": "待办",
+      "inProgress": "进行中",
+      "inReview": "审核中",
+      "done": "已完成",
+      "blocked": "已阻塞",
+      "cancelled": "已取消",
+      "backlog": "待整理"
+    },
+    "priority": {
+      "critical": "紧急",
+      "high": "高",
+      "medium": "中",
+      "low": "低"
+    }
+  },
+  "agents": {
+    "panel": {
+      "title": "智能体",
+      "noRecentRuns": "暂无最近的智能体运行。",
+      "moreRuns": "还有 {{count}} 个活跃/近期运行",
+      "moreRuns_plural": "还有 {{count}} 个活跃/近期运行",
+      "liveNow": "正在运行",
+      "finished": "{{time}} 结束",
+      "started": "{{time}} 开始"
+    }
   }
 }
