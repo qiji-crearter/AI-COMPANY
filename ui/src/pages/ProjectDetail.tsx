@@ -30,6 +30,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import { PluginLauncherOutlet } from "@/plugins/launchers";
 import { PluginSlotMount, PluginSlotOutlet, usePluginSlots } from "@/plugins/slots";
+import { useTranslation } from "react-i18next";
 
 /* ── Top-level tab types ── */
 
@@ -61,10 +62,12 @@ function OverviewContent({
   project,
   onUpdate,
   imageUploadHandler,
+  t,
 }: {
   project: { description: string | null; status: string; targetDate: string | null };
   onUpdate: (data: Record<string, unknown>) => void;
   imageUploadHandler?: (file: File) => Promise<string>;
+  t: (key: string) => string;
 }) {
   return (
     <div className="space-y-6">
@@ -74,21 +77,21 @@ function OverviewContent({
         nullable
         as="p"
         className="text-sm text-muted-foreground"
-        placeholder="Add a description..."
+        placeholder={t("projects.detail.overview.descriptionPlaceholder")}
         multiline
         imageUploadHandler={imageUploadHandler}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div>
-          <span className="text-muted-foreground">Status</span>
+          <span className="text-muted-foreground">{t("projects.detail.overview.status")}</span>
           <div className="mt-1">
             <StatusBadge status={project.status} />
           </div>
         </div>
         {project.targetDate && (
           <div>
-            <span className="text-muted-foreground">Target Date</span>
+            <span className="text-muted-foreground">{t("projects.detail.overview.targetDate")}</span>
             <p>{project.targetDate}</p>
           </div>
         )}
@@ -102,9 +105,11 @@ function OverviewContent({
 function ColorPicker({
   currentColor,
   onSelect,
+  t,
 }: {
   currentColor: string;
   onSelect: (color: string) => void;
+  t: (key: string, options?: Record<string, unknown>) => string;
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -126,7 +131,7 @@ function ColorPicker({
         onClick={() => setOpen(!open)}
         className="shrink-0 h-5 w-5 rounded-md cursor-pointer hover:ring-2 hover:ring-foreground/20 transition-[box-shadow]"
         style={{ backgroundColor: currentColor }}
-        aria-label="Change project color"
+        aria-label={t("projects.detail.colorPicker.changeLabel")}
       />
       {open && (
         <div className="absolute top-full left-0 mt-2 p-2 bg-popover border border-border rounded-lg shadow-lg z-50 w-max">
@@ -144,7 +149,7 @@ function ColorPicker({
                     : "hover:ring-2 hover:ring-foreground/30"
                 }`}
                 style={{ backgroundColor: color }}
-                aria-label={`Select color ${color}`}
+                aria-label={t("projects.detail.colorPicker.selectLabel", { color })}
               />
             ))}
           </div>
@@ -282,6 +287,7 @@ export function ProjectDetail() {
   const { closePanel } = usePanel();
   const { setBreadcrumbs } = useBreadcrumbs();
   const { pushToast } = useToastActions();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const location = useLocation();
@@ -395,17 +401,17 @@ export function ProjectDetail() {
       ),
     onSuccess: (updatedProject, archived) => {
       invalidateProject();
-      const name = updatedProject?.name ?? project?.name ?? "Project";
+      const name = updatedProject?.name ?? project?.name ?? t("projects.detail.breadcrumb.project");
       if (archived) {
-        pushToast({ title: `"${name}" has been archived`, tone: "success" });
+        pushToast({ title: t("projects.detail.toast.archived", { name }), tone: "success" });
         navigate("/dashboard");
       } else {
-        pushToast({ title: `"${name}" has been unarchived`, tone: "success" });
+        pushToast({ title: t("projects.detail.toast.unarchived", { name }), tone: "success" });
       }
     },
     onError: (_, archived) => {
       pushToast({
-        title: archived ? "Failed to archive project" : "Failed to unarchive project",
+        title: archived ? t("projects.detail.toast.failedArchive") : t("projects.detail.toast.failedUnarchive"),
         tone: "error",
       });
     },
@@ -428,8 +434,8 @@ export function ProjectDetail() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: "Projects", href: "/projects" },
-      { label: project?.name ?? routeProjectRef ?? "Project" },
+      { label: t("projects.detail.breadcrumb.projects"), href: "/projects" },
+      { label: project?.name ?? routeProjectRef ?? t("projects.detail.breadcrumb.project") },
     ]);
   }, [setBreadcrumbs, project, routeProjectRef]);
 
@@ -639,6 +645,7 @@ export function ProjectDetail() {
           <ColorPicker
             currentColor={project.color ?? "#6366f1"}
             onSelect={(color) => updateProject.mutate({ color })}
+            t={t}
           />
         </div>
         <div className="min-w-0 space-y-2">
@@ -651,13 +658,13 @@ export function ProjectDetail() {
           {project.pauseReason === "budget" ? (
             <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-red-200">
               <span className="h-2 w-2 rounded-full bg-red-400" />
-              Paused by budget hard stop
+              {t("projects.detail.budgetPaused")}
             </div>
           ) : null}
           {project.managedByPlugin ? (
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-[11px] font-medium text-muted-foreground">
               <span className="h-2 w-2 rounded-full" style={{ backgroundColor: project.color ?? "#6366f1" }} />
-              Managed by {project.managedByPlugin.pluginDisplayName}
+              {t("projects.detail.managedBy", { pluginName: project.managedByPlugin.pluginDisplayName })}
             </div>
           ) : null}
         </div>
@@ -697,12 +704,12 @@ export function ProjectDetail() {
       <Tabs value={activeTab ?? "list"} onValueChange={(value) => handleTabChange(value as ProjectTab)}>
         <PageTabBar
           items={[
-            { value: "list", label: "Issues" },
-            { value: "overview", label: "Overview" },
-            ...(project.managedByPlugin ? [{ value: "plugin-operations", label: "Plugin operations" }] : []),
-            ...(showWorkspacesTab ? [{ value: "workspaces", label: "Workspaces" }] : []),
-            { value: "configuration", label: "Configuration" },
-            { value: "budget", label: "Budget" },
+            { value: "list", label: t("projects.detail.tab.issues") },
+            { value: "overview", label: t("projects.detail.tab.overview") },
+            ...(project.managedByPlugin ? [{ value: "plugin-operations", label: t("projects.detail.tab.pluginOperations") }] : []),
+            ...(showWorkspacesTab ? [{ value: "workspaces", label: t("projects.detail.tab.workspaces") }] : []),
+            { value: "configuration", label: t("projects.detail.tab.configuration") },
+            { value: "budget", label: t("projects.detail.tab.budget") },
             ...pluginTabItems.map((item) => ({
               value: item.value,
               label: item.label,
@@ -722,6 +729,7 @@ export function ProjectDetail() {
             const asset = await uploadImage.mutateAsync(file);
             return asset.contentPath;
           }}
+          t={t}
         />
       )}
 
@@ -750,7 +758,7 @@ export function ProjectDetail() {
             />
           )
         ) : (
-          <p className="text-sm text-muted-foreground">Loading workspaces...</p>
+          <p className="text-sm text-muted-foreground">{t("projects.detail.loadingWorkspaces")}</p>
         )
       ) : null}
 

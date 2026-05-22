@@ -1,6 +1,6 @@
 import type { Resource } from "i18next";
 
-import { assertValidLocaleMessages } from "./locale-validation";
+import { assertValidLocaleMessages, validateLocaleMessages } from "./locale-validation";
 
 export const DEFAULT_LOCALE = "en" as const;
 
@@ -25,7 +25,14 @@ if (!(DEFAULT_LOCALE in localeMessages)) {
 
 for (const [locale, messages] of Object.entries(localeMessages)) {
   try {
-    assertValidLocaleMessages(messages);
+    if (locale === DEFAULT_LOCALE) {
+      assertValidLocaleMessages(messages);
+    } else {
+      const errors = validateLocaleMessages(messages);
+      if (errors.length > 0) {
+        console.warn(`[i18n] ${locale} locale is incomplete (${errors.length} issues). Falling back to ${DEFAULT_LOCALE} for missing keys.`);
+      }
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`Invalid ${locale} locale messages: ${message}`);
