@@ -424,3 +424,16 @@ export type {
   PluginDatabaseNamespaceMode,
   PluginDatabaseNamespaceStatus,
 } from "./plugin.js";
+export type {
+  ProviderKey,
+  ProviderKeyWithSecret,
+  CreateProviderKeyRequest,
+  UpdateProviderKeyRequest,
+  TestProviderKeyResult,
+} from "./provider_keys.js";
+
+export type {
+  PoolAgent,
+  CreatePoolAgentRequest,
+  UpdatePoolAgentRequest,
+} from "./agent-pool.js";

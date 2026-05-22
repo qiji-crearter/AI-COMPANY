@@ -511,6 +511,11 @@ export type {
   CompanyInviteListResponse,
   CompanyInviteRecord,
   PrincipalPermissionGrant,
+  ProviderKey,
+  ProviderKeyWithSecret,
+  CreateProviderKeyRequest,
+  UpdateProviderKeyRequest,
+  TestProviderKeyResult,
   Invite,
   JoinRequest,
   JoinRequestInviteSummary,
@@ -639,6 +644,9 @@ export type {
   PluginWebhookDeliveryRecord,
   QuotaWindow,
   ProviderQuotaResult,
+  PoolAgent,
+  CreatePoolAgentRequest,
+  UpdatePoolAgentRequest,
 } from "./types/index.js";
 export { COMPANY_SEARCH_SCOPES } from "./types/index.js";
 export {
@@ -700,6 +708,14 @@ export {
   issueGraphLivenessAutoRecoveryRequestSchema,
   type PatchInstanceExperimentalSettings,
   type IssueGraphLivenessAutoRecoveryRequest,
+  createProviderKeySchema,
+  updateProviderKeySchema,
+  type CreateProviderKey,
+  type UpdateProviderKey,
+  createPoolAgentSchema,
+  updatePoolAgentSchema,
+  type CreatePoolAgent,
+  type UpdatePoolAgent,
 } from "./validators/index.js";
 
 export {

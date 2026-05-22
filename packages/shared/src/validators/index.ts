@@ -439,3 +439,17 @@ export {
   type SetPluginState,
   type ListPluginState,
 } from "./plugin.js";
+
+export {
+  createProviderKeySchema,
+  updateProviderKeySchema,
+  type CreateProviderKey,
+  type UpdateProviderKey,
+} from "./provider_keys.js";
+
+export {
+  createPoolAgentSchema,
+  updatePoolAgentSchema,
+  type CreatePoolAgent,
+  type UpdatePoolAgent,
+} from "./agent-pool.js";
